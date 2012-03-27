@@ -15,3 +15,13 @@ A demo is available at http://graves.cl/visualRDF
 
 [1] http://mbostock.github.com/d3/
 [2] https://github.com/semsol/arc2
+
+------------
+This is a fork of visualRDF that doesn't use php and its uglier.
+
+You can test this using 
+
+python -m SimpleHTTPServer 8888
+
+Once this is running, go to: 
+http://localhost:8888/index.html
