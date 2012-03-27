@@ -1,23 +1,7 @@
 # Introduction
-visualRDF aims to provide a nice graphical visualization of an RDF graph.
+visualRDF aims to provide a lightweight graphical visualization of an RDF graph.
 
-visualRDF is a one night-fork from visualSPARQL (see my profile for more projects).
-It will probably stay in this status for a while.
-
-visualRDF uses d3.js[1] for rendering and ARC2[2] for parsing RDF.
-
-If you have any comments, bug reports, etc. Please create an issue on github.
-
-# Demo
-
-A demo is available at http://graves.cl/visualRDF
-
-
-[1] http://mbostock.github.com/d3/
-[2] https://github.com/semsol/arc2
-
-------------
-This is a fork of visualRDF that doesn't use php and its uglier.
+This is a fork of alangrafu's visualRDF[1] that only uses Javascript.
 
 You can test this using 
 
@@ -25,3 +9,8 @@ python -m SimpleHTTPServer 8888
 
 Once this is running, go to: 
 http://localhost:8888/index.html
+
+visualRDF uses d3.js[2]
+
+[1] https://github.com/alangrafu/visualRDF
+[2] http://mbostock.github.com/d3/
