@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript" src="./js/jquery/jquery-1.4.2.js"
+	alt="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<!-- Graphs -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="./js/d3/d3.js"></script>
+<script type="text/javascript" src="./js/d3/d3.geom.js"></script>
+<script type="text/javascript" src="./js/d3/d3.layout.js"></script>
+<script type="text/javascript" src="./js/graph-browser.js"></script>
+<link type="text/css" rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+	<div id="ui">
+	<textarea id="query" cols="140" rows="20"></textarea>
+		Endpoint:
+		<input type="text" id="endpoint" />
+		<input type="submit" value="DRAW" onclick="draw()" />
+	</div>
+	<div id="results"></div>
+	<div id="Graph"></div>
+	<footer>
+		<p>
+			<span style="display: inline-block"></span>&nbsp;
+		</p>
+	</footer>
+</body>
+<script type="text/javascript">
+	var currentEndpoint = 'http://datos.bcn.cl/sparql';
+	var currentEntity = '<http://datos.bcn.cl/recurso/cl/division-politico-administrativa/comuna/santiago/>';
+	var currentQuery = 
+//'\
+//PREFIX rdfs:		<http://www.w3.org/2000/01/rdf-schema#>\n\
+//PREFIX rdf:		<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\
+//\n\
+//SELECT  distinct ?g ?s ?p ?o\n\
+//{\n\
+//			{ ?s ?p ?o } UNION { GRAPH ?g { ?s ?p ?o } } .\n\
+//} LIMIT 10';
+'\
+PREFIX rdfs:		<http://www.w3.org/2000/01/rdf-schema#>\n\
+PREFIX rdf:		<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n\
+\n\
+select distinct '+currentEntity+' as ?s ?p ?o where {'+currentEntity+' ?p ?o }';
+
+$("#endpoint").val(currentEndpoint);
+	$("#query").val(currentQuery);
+
+	function draw() {
+		$("#Graph").empty();
+		$("#results").empty();
+		getRelations($("#endpoint").val(),$("#query").val());
+	}
+</script>
+
+</html>
