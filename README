@@ -1,6 +1,8 @@
 # Introduction
 visualRDF aims to provide a lightweight graphical visualization of an RDF graph.
 
+Moved to: https://github.com/openthings-cc/VisualRDF
+
 This is a fork of alangrafu's visualRDF[1] that only uses Javascript.
 
 You can test this using 
